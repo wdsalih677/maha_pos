@@ -1,0 +1,55 @@
+<div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
+                {{ __('users.add_user') }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- add_form -->
+                <form action="{{ route('users.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">{{ __('users.username') }} :</label>
+                            <input id="name" name="name" type="text"  class="form-control" required>
+
+                            <label for="Name" class="mr-sm-2">{{ __('users.confirm-password') }} :</label>
+                            <input id="name" type="password" name="confirm-password" class="form-control" required>
+
+                            <label for="Name"  class="mr-sm-2">{{ __('users.status') }} :</label>
+                            <select name="status" class="form-control" required>
+                                <option value="1">{{ __('users.active') }}</option>
+                                <option value="0">{{ __('users.not_active') }}</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="Name" class="mr-sm-2">{{ __('users.email') }} :</label>
+                            <input id="name" name="email" type="email"  class="form-control" required>
+
+                            <label for="Name" class="mr-sm-2">{{ __('users.password') }} :</label>
+                            <input id="name" name="password" type="password"  class="form-control" required>
+
+                            <label for="Name"  class="mr-sm-2">{{ __('users.user_role') }} :</label>
+                            <select name="role_name" class="form-control" required>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+            </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">{{ __('main_trans.close') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('main_trans.add') }}</button>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
