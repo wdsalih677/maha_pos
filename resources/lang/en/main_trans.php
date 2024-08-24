@@ -6,5 +6,6 @@ return [
     'delete' => 'Delete',
     'logout' => 'LogOut',
     'close' => 'Colse',
-    
+    'read_more' => 'Read More',
+    'read_less' => 'Read Less',
 ];

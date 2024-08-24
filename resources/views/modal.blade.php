@@ -17,7 +17,7 @@
 
                     </div>
             </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="display: flex;justify-content: space-between;">
                         <button type="button" class="btn btn-secondary"
                             data-dismiss="modal">اغلاق</button>
                         <button type="submit" class="btn btn-success">اضافة</button>

@@ -11,7 +11,6 @@
 @yield('css')
 <!--- Style css -->
 <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet">
-
 <!--- Style css -->
 @if (App::getLocale() == 'ar')
     <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">

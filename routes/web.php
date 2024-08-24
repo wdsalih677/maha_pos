@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Categories\CategoryController;
+use App\Http\Controllers\products\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -32,6 +34,8 @@ Route::group([
     Route::get('/dashboard',[ AdminController::class , 'index'])->name('dashboard');
     Route::resource('/users', UserController::class);
     Route::resource('/role' , RoleController::class);
+    Route::resource('/categories' , CategoryController::class);
+    Route::resource('/products' , ProductController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

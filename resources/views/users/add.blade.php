@@ -43,7 +43,7 @@
                         </div>
                     </div>
             </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="display: flex;justify-content: space-between;">
                         <button type="button" class="btn btn-secondary"
                             data-dismiss="modal">{{ __('main_trans.close') }}</button>
                         <button type="submit" class="btn btn-success">{{ __('main_trans.add') }}</button>

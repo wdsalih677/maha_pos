@@ -1,9 +1,9 @@
-<div class="modal fade" id="deletemodal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
+<div class="modal fade" id="deletemodal{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                {{ __('users.delete_user') }}
+                {{ __('category.delete_category') }}
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -11,18 +11,18 @@
             </div>
             <div class="modal-body">
                 <!-- add_form -->
-                <form action="{{ route('users.destroy' , $user->id) }}" method="POST">
+                <form action="{{ route('categories.destroy' , $category->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <div class="row">
                         <div class="col">
-                            <label for="Name" class="mr-sm-2 text-danger">{{ __('users.username') }} :</label>
-                            <input id="name" name="name" type="text" value="{{ $user->name }}"  class="form-control" disabled>
-                            <input type="hidden" name="id" value="{{ $user->id }}">
+                            <label for="">{{ __('category.category_name_ar') }} :</label>
+                            <input type="text" name="name_ar" value="{{ $category->getTranslation('name' , 'ar') }}" class="form-control" disabled>
+                            <input type="hidden" name="id" value="$category->id">
                         </div>
                         <div class="col">
-                            <label for="Name" class="mr-sm-2 text-danger">{{ __('users.email') }} :</label>
-                            <input id="name" name="email" type="email" value="{{ $user->email }}" class="form-control" disabled>
+                            <label for="">{{ __('category.category_name_en') }} :</label>
+                            <input type="text" name="name_en" value="{{ $category->getTranslation('name' , 'en') }}" class="form-control" disabled>
                         </div>
                     </div>
             </div>
