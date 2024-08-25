@@ -29,69 +29,91 @@
             <div class="card-body">
                 @include('layouts.error')
                 <br>
-                <button class="btn btn-success" data-toggle="modal" data-target="#addmodal">{{ __('main_trans.add') }}</button>
+                <div class="d-flex align-items-center mb-3">
+                    <button class="btn btn-success mr-5" data-toggle="modal" data-target="#addmodal">{{ __('main_trans.add') }}</button>
+                    
+                    <form action="{{ route('products.index') }}" method="get" class="d-flex align-items-center">
+                        <select name="category_id" class="form-control" onchange="this.form.submit()" style="height: 50px;">
+                            <option value="">{{ __('category.select_category') }}</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ App::getLocale() == 'ar' ? $category->getTranslation('name', 'ar') : $category->getTranslation('name', 'en') }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
                 <br><br><br>
                 <div class="row">
-                    @foreach ( $products as $product )
-                    <div class="col-xl-3 mb-30">
-                        <div class="card card-statistics mb-30">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-family: Cairo, sans-serif;display: flex;justify-content: space-between;"><label>{{ $product->getTranslation('name' , 'ar') }}</label>|<span>{{ $product->getTranslation('name' , 'en') }}</span></h5>
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="">{{ __("product.buy_price") }}</label>: 
-                                        <label for="">{{ $product->buy_price }}</label>
-                                        <br>
-                                        <label for="">{{ __('category.category') }}</label>:
-                                        <label for="">{{ $product->categories->name }}</label>
+                    @if ($products->isNotEmpty())
+                        @foreach ( $products as $product )
+                            <div class="col-xl-3 mb-30">
+                                <div class="card card-statistics mb-30">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="font-family: Cairo, sans-serif;display: flex;justify-content: space-between;"><label>{{ $product->getTranslation('name' , 'ar') }}</label>|<span>{{ $product->getTranslation('name' , 'en') }}</span></h5>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="">{{ __("product.buy_price") }}</label>: 
+                                                <label for="">{{ $product->buy_price }}</label>
+                                                <br>
+                                                <label for="">{{ __("product.profit") }} : <span class="badge bg-success" style="color:white">{{ $product->profit }}%</span></label>
+                                                <br>
+                                                <label for="">{{ __('category.category') }}</label>:
+                                                <label for="">{{ $product->categories->name }}</label>
+                                            </div>
+                                            <div class="col">
+                                                <label for="">{{ __("product.sell_price") }} </label>:
+                                                <label for="">{{ $product->sell_price }}</label>
+                                                <br>
+                                                <label for="">{{ __('product.stock') }}</label>:
+                                                <label for="">{{ $product->stock }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">{{ __('product.description_ar') }}</label>:
+                                                <br>
+                                                <p id="short-content">
+                                                    {{ Str::limit($product->getTranslation('description' ,'ar'), 10) }}
+                                                    <a href="javascript:void(0);" id="read-more">{{ __('main_trans.read_more') }}</a>
+                                                </p>
+                                                <p id="full-content" style="display: none;">
+                                                    {{ $product->getTranslation('description' ,'ar') }}
+                                                    <a href="javascript:void(0);" id="read-less">{{ __('main_trans.read_less') }}</a>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">{{ __('product.description_en') }}</label>:
+                                                <br>
+                                                <p id="short-content0">
+                                                    {{ Str::limit($product->getTranslation('description' ,'en'), 10) }}
+                                                    <a href="javascript:void(0);" id="read-more0">{{ __('main_trans.read_more') }}</a>
+                                                </p>
+                                                <p id="full-content0" style="display: none;">
+                                                    {{ $product->getTranslation('description' ,'en') }}
+                                                    <a href="javascript:void(0);" id="read-less0">{{ __('main_trans.read_less') }}</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <img class="img-thumbnail" src="{{ asset('storage/products/'.$product->image) }}" height="150px" width="100%" alt="">
+                                        <hr>
+                                        <div style="display: flex;justify-content: space-between;">
+                                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#editmodal{{ $product->id }}">{{ __('main_trans.edit') }}</button>
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal{{ $product->id }}">{{ __('main_trans.delete') }}</button>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <label for="">{{ __("product.sell_price") }}</label>:
-                                        <label for="">{{ $product->sell_price }}</label>
-                                        <br>
-                                        <label for="">{{ __('product.stock') }}</label>:
-                                        <label for="">{{ $product->stock }}</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="">{{ __('product.description_ar') }}</label>:
-                                        <br>
-                                        <p id="short-content">
-                                            {{ Str::limit($product->getTranslation('description' ,'ar'), 10) }}
-                                            <a href="javascript:void(0);" id="read-more">{{ __('main_trans.read_more') }}</a>
-                                        </p>
-                                        <p id="full-content" style="display: none;">
-                                            {{ $product->getTranslation('description' ,'ar') }}
-                                            <a href="javascript:void(0);" id="read-less">{{ __('main_trans.read_less') }}</a>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">{{ __('product.description_en') }}</label>:
-                                        <br>
-                                        <p id="short-content0">
-                                            {{ Str::limit($product->getTranslation('description' ,'en'), 10) }}
-                                            <a href="javascript:void(0);" id="read-more0">{{ __('main_trans.read_more') }}</a>
-                                        </p>
-                                        <p id="full-content0" style="display: none;">
-                                            {{ $product->getTranslation('description' ,'en') }}
-                                            <a href="javascript:void(0);" id="read-less0">{{ __('main_trans.read_less') }}</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <img class="img-thumbnail" src="{{ asset('storage/products/'.$product->image) }}" height="150px" width="100%" alt="">
-                                <hr>
-                                <div style="display: flex;justify-content: space-between;">
-                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#editmodal{{ $product->id }}">{{ __('main_trans.edit') }}</button>
-                                    <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal{{ $product->id }}">{{ __('main_trans.delete') }}</button>
                                 </div>
                             </div>
+                            @include('products.edit')
+                            @include('products.delete')                    
+                        @endforeach
+                    @else
+                        <div class="col-md-12">
+                            <div class="alert alert-info text-center text-bold"><h5 style="font-family: Cairo, sans-serif">{{ __('category.no_products') }}</h5></div>
                         </div>
-                    </div>
-                    @include('products.edit')
-                    @include('products.delete')                    
-                    @endforeach
+                    @endif
+                   
                 </div>
                 <div class="d-flex justify-content-center">
                     {{ $products->links('pagination::bootstrap-4') }}

@@ -39,6 +39,8 @@
                                 <th>#</th>
                                 <th>{{ __('category.category_name_ar') }}</th>
                                 <th>{{ __('category.category_name_en') }}</th>
+                                <th>{{ __('category.product_count') }}</th>
+                                <th>{{ __('category.related_product') }}</th>
                                 <th>{{ __('main_trans.option') }}</th>
                             </tr>
                         </thead>
@@ -48,6 +50,10 @@
                                     <td>{{ $loop->index +1 }}</td>
                                     <td>{{ $category->getTranslation('name' , 'ar') }}</td>
                                     <td>{{ $category->getTranslation('name' , 'en') }}</td>
+                                    <td>{{ $category->products->count() == 0 ? __('category.no_products') : $category->products->count() }}</td>
+                                    <th>
+                                        <a href="{{ route('products.index' , ['category_id' => $category->id]) }}" class="btn btn-info">{{ __('category.related_product') }}</a>
+                                    </th>
                                     <td>
                                         <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editmodal{{ $category->id }}" title="{{ __('main_trans.edit') }}" ><i class="fa fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletemodal{{ $category->id }}" title="{{ __('main_trans.delete') }}"><i class="fa fa-trash"></i></button>
@@ -63,6 +69,8 @@
                                 <th>#</th>
                                 <th>{{ __('category.category_name_ar') }}</th>
                                 <th>{{ __('category.category_name_en') }}</th>
+                                <th>{{ __('category.product_count') }}</th>
+                                <th>{{ __('category.related_product') }}</th>
                                 <th>{{ __('main_trans.option') }}</th>
                             </tr>
                         </tfoot>

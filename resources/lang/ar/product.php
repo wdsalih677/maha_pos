@@ -9,6 +9,7 @@ return [
     'stock' => 'المخزون',
     'description' => 'الوصف',
     'image' => 'صوره',
+    'profit' => 'الربح',
 
     'add_product' => 'اضافة منتج',
     'edit_product' => 'تعديل منتج',

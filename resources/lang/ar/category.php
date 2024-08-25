@@ -4,6 +4,10 @@ return [
     'category_name_en' => 'اسم القسم بالإنجليزيه',
 
     'category' => 'القسم',
+    'product_count' => 'عدد المنتجات',
+    'no_products' => 'لاتوجد منتجات',
+    'select_category' => 'اختار القسم',
+    'related_product' => 'المنتجات المرتبطه',
 
     'add_category' => 'إضافة قسم',
     'edit_category' => 'تعديل قسم',

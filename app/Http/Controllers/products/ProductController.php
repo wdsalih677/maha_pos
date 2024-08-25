@@ -11,10 +11,24 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::get();
-        $products = Product::paginate(8);
+        
+        $query = Product::query();
+
+        if ($request->has('category_id') && $request->category_id) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        $products = $query->paginate(10);
+
+        foreach ($products as $product) {
+            $product->profit = $product->sell_price - $product->buy_price;
+            $product->profit = $product->profit * 100 / $product->buy_price;
+            $product->profit = number_format($product->profit , 2);
+        }
+
         return view('products.product', compact('categories' , 'products'));
     }
 
@@ -125,4 +139,5 @@ class ProductController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
 }

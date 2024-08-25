@@ -4,7 +4,10 @@ return [
     'category_name_en' => 'Category Name EN',
 
     'category' => 'Category',
-
+    'product_count' => 'Product Count',
+    'no_products' => 'No Products',
+    'select_category' => 'Select Category',
+    'related_product' => 'Related Products',
 
     'add_category' => 'Add Category',
     'edit_category' => 'Edit Category',
