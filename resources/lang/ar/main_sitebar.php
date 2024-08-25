@@ -8,4 +8,6 @@ return [
     'categories_list' => 'قائمة الأقسام',
     'products' => 'المنتجات',
     'products_list' => 'قائمة المنتجات',
+    'clients' => 'العملاء',
+    'clients_list' => 'قائمة العملاء',
 ];

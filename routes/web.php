@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Categories\CategoryController;
+use App\Http\Controllers\clients\ClientController;
 use App\Http\Controllers\products\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -36,6 +37,7 @@ Route::group([
     Route::resource('/role' , RoleController::class);
     Route::resource('/categories' , CategoryController::class);
     Route::resource('/products' , ProductController::class);
+    Route::resource('/clients' , ClientController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

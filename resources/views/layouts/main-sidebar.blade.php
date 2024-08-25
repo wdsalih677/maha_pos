@@ -49,6 +49,17 @@
                             <li><a href="{{ route('products.index') }}">{{ __('main_sitebar.products_list') }}</a></li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#clients">
+                            <div class="pull-left"><i class="ti-palette"></i><span class="right-nav-text">{{ __('main_sitebar.clients') }}</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="clients" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('clients.index') }}">{{ __('main_sitebar.clients_list') }}</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
