@@ -28,7 +28,11 @@
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
 {{-- CKEditor --}}
 <script src="{{ URL::asset('assets/vendor/ckeditor5.js') }}"></script>
+{{-- custom js orders تحضر الطلبات--}}
+<script src="{{ URL::asset('assets/js/custom/order.js') }}"></script>
 
+{{-- JQuary number to add .00 --}}
+<script src="{{ URL::asset('assets/js/jquery.number.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable();

@@ -10,4 +10,6 @@ return [
     'products_list' => 'قائمة المنتجات',
     'clients' => 'العملاء',
     'clients_list' => 'قائمة العملاء',
+    'orders' => 'الطلبات',
+    'orders_list' => 'قائمة الطلبات',
 ];

@@ -8,6 +8,7 @@
     @section('title')
     {{ trans('main_sitebar.dashboard') }}
     @endsection
+    {{-- <title>{{ __('main_sitebar.dashboard') }}</title> --}}
 </head>
 
 <body>

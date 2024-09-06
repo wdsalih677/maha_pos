@@ -20,7 +20,7 @@
                             <input name="name_ar" value="{{ $product->getTranslation('name' , 'ar') }}" type="text"  class="form-control" required>
 
                             <label class="mr-sm-2">{{ __('product.sell_price') }} :</label>
-                            <input  name="sell_price" value="{{ $product->sell_price }}" type="number" class="form-control" required>
+                            <input  name="sell_price" step="0.01" value="{{ $product->sell_price }}" type="number" class="form-control" required>
 
                             <label class="mr-sm-2" >{{ __('category.category') }} :</label>
                             <select name="category_id" class="form-control" style="height: 51px">
@@ -34,7 +34,7 @@
                             <input name="name_en" value="{{ $product->getTranslation('name' , 'en') }}" type="text"  class="form-control" required>
 
                             <label class="mr-sm-2">{{ __('product.buy_price') }} :</label>
-                            <input name="buy_price" value="{{ $product->buy_price }}" type="number"  class="form-control" required>
+                            <input name="buy_price" step="0.01" value="{{ $product->buy_price }}" type="number"  class="form-control" required>
 
                             <label class="mr-sm-2">{{ __('product.stock') }} :</label>
                             <input name="stock" value="{{ $product->stock }}" type="number"  class="form-control" required>

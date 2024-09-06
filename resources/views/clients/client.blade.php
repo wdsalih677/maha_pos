@@ -40,6 +40,7 @@
                                 <th>{{ __('client.name') }}</th>
                                 <th>{{ __('client.phone') }}</th>
                                 <th>{{ __('client.address') }}</th>
+                                <th>{{ __('client.add_order') }}</th>
                                 <th>{{ __('main_trans.option') }}</th>
                             </tr>
                         </thead>
@@ -51,7 +52,10 @@
                                     <td>{{ $client->phone }}</td>
                                     <td>{{ $client->address }}</td>
                                     <td>
-                                        <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editmodal{{ $client->id }}" title="{{ __('main_trans.edit') }}" ><i class="fa fa-edit"></i></button>
+                                        <a href="{{ route('client.orders.create',$client->id) }}" class="btn btn-info btn-sm">{{ __('client.add_order') }}</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editmodal{{ $client->id }}" title="{{ __('main_trans.edit') }}" ><i class="fa fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletemodal{{ $client->id }}" title="{{ __('main_trans.delete') }}"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -66,6 +70,7 @@
                                 <th>{{ __('client.name') }}</th>
                                 <th>{{ __('client.phone') }}</th>
                                 <th>{{ __('client.address') }}</th>
+                                <th>{{ __('client.add_order') }}</th>
                                 <th>{{ __('main_trans.option') }}</th>
                             </tr>
                         </tfoot>

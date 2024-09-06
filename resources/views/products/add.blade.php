@@ -19,7 +19,7 @@
                             <input name="name_ar" type="text"  class="form-control" required>
 
                             <label class="mr-sm-2">{{ __('product.sell_price') }} :</label>
-                            <input  name="sell_price" type="number" class="form-control" required>
+                            <input  name="sell_price" type="number" step="0.01" class="form-control" required>
 
                             <label class="mr-sm-2" >{{ __('category.category') }} :</label>
                             <select name="category_id" class="form-control" style="height: 51px">
@@ -33,7 +33,7 @@
                             <input name="name_en" type="text"  class="form-control" required>
 
                             <label class="mr-sm-2">{{ __('product.buy_price') }} :</label>
-                            <input name="buy_price" type="number"  class="form-control" required>
+                            <input name="buy_price" type="number" step="0.01" class="form-control" required>
 
                             <label class="mr-sm-2">{{ __('product.stock') }} :</label>
                             <input name="stock" type="number"  class="form-control" required>

@@ -43,15 +43,9 @@ login-->
         <div class="container">
             <div class="row justify-content-center no-gutters vertical-align">
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg"
-                     style="background-image: url('{{ asset('assets/images/login-inner-bg.jpg')}}');">
+                     style="background-image: url('{{ asset('assets/images/image-800x550.jpg')}}');">
                     <div class="login-fancy">
-                        <h2 class="text-white mb-20">Hello world!</h2>
-                        <p class="mb-20 text-white">Create tailor-cut websites with the exclusive multi-purpose
-                            responsive template along with powerful features.</p>
-                        <ul class="list-unstyled  pos-bot pb-30">
-                            <li class="list-inline-item"><a class="text-white" href="#"> Terms of Use</a> </li>
-                            <li class="list-inline-item"><a class="text-white" href="#"> Privacy Policy</a></li>
-                        </ul>
+                        <h3 class="text-white mb-20 text-center">MahaSoft-POS</h3>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 bg-white">

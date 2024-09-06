@@ -3,6 +3,7 @@ return [
     'name' => 'Client Name',
     'phone' => 'Phone',
     'address' => 'Address',
+    'add_order' => 'Add Order',
 
     'add_client' => 'Add Client',
     'edit_client' => 'Edit Client',

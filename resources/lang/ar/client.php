@@ -3,6 +3,7 @@ return [
     'name' => 'اسم العميل',
     'phone' => 'رقم الهاتف',
     'address' => 'العنوان',
+    'add_order' => 'اضافة طلب',
 
     'add_client' => 'اضافة عميل',
     'edit_client' => 'تعديل عميل',
