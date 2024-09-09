@@ -2,6 +2,8 @@
 return [
     'order_number' => 'Order Number',
     'orders_details' => 'Order Details',
+    'all_orders_amount' => 'Total of all orders',
+
 
     'add_order' => 'Add Order',
     'edit_order' => 'Edit Order', 

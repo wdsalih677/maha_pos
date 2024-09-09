@@ -5,10 +5,11 @@ namespace App\Models\clients;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\clients\Order;
+use Illuminate\Notifications\Notifiable;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory , Notifiable;
 
     protected $table = 'clients';
     protected $guarded = [];

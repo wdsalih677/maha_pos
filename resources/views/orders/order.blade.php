@@ -28,6 +28,8 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
+                <h5 class="mb-0" style="font-family: Cairo, sans-serif">{{ __('order.all_orders_amount') }} : {{ $orders->sum('total_price') }}</h5>
+                <br>
                 <table id="datatable" class="table-bordered border table table-striped dataTable p-0" style="text-align: center;">
                     <thead style="color: rgb(130, 148, 123);">
                         <tr>

@@ -2,6 +2,7 @@
 return [
     'order_number' => 'رقم الطلب',
     'orders_details' => 'تفاصيل الطلب',
+    'all_orders_amount' => 'مجموع جميع الطلبات',
 
     'add_order' => 'اضافة طلب',
     'edit_order' => 'تعديل طلب', 

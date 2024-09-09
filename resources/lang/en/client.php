@@ -4,6 +4,9 @@ return [
     'phone' => 'Phone',
     'address' => 'Address',
     'add_order' => 'Add Order',
+    'show_all_order' => 'Show Orders',
+    'orders_of_client' => 'Orders Of',
+    'orders_dated' => 'Orders Dated',
 
     'add_client' => 'Add Client',
     'edit_client' => 'Edit Client',

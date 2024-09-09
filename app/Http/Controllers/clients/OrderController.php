@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\clients;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\OrderCreated;
 use App\Models\Categories\Category;
 use App\Models\clients\Client;
 use App\Models\clients\Order;
 use App\Models\Products\Product;
 use App\Traits\OrderNumber;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Foreach_;
+use Illuminate\Support\Facades\Notification;
 
 class OrderController extends Controller
 {
@@ -71,6 +72,10 @@ use OrderNumber;
         $order->update([
             'total_price' => $total_price,
         ]);
+
+        // Notification::send($client->email , new OrderCreated($order->id));
+        
+        $client->notify(new OrderCreated($order , $client));
         toastr()->success(__('order.add_order_success'));
         return redirect()->route('getAllOrders');
     }
@@ -146,5 +151,12 @@ use OrderNumber;
         $order->delete();
         toastr()->success(__('order.delete_order_success'));
         return redirect()->route('getAllOrders');
+    }
+
+    //function to get all client orders
+    public function show_client_orders($id)
+    {
+        $client = Client::findOrFail($id);
+        return view('clients.orders.show_chient_orders' , compact('client'));
     }
 }

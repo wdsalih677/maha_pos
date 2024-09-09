@@ -25,6 +25,9 @@
                         </div>
                     </div>
                     <br>
+                    <label>{{ __('users.email') }}</label>
+                    <input type="email" name="email" class="form-control" value="{{ $client->email }}">
+                    <br>
                     <label>{{ __('client.address') }} :</label>
                     <textarea name="address" class="form-control">{{ $client->address }}</textarea>
             </div>

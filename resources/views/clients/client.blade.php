@@ -55,8 +55,14 @@
                                         <a href="{{ route('client.orders.create',$client->id) }}" class="btn btn-info btn-sm">{{ __('client.add_order') }}</a>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editmodal{{ $client->id }}" title="{{ __('main_trans.edit') }}" ><i class="fa fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletemodal{{ $client->id }}" title="{{ __('main_trans.delete') }}"><i class="fa fa-trash"></i></button>
+                                        <div class="dropdown">
+                                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-info btn-sm" data-toggle="dropdown" type="button">{{ __('main_trans.option') }}<i class="fa fa-caret-down ml-1"></i></button>
+                                            <div class="dropdown-menu tx-13">
+                                                <a class="dropdown-item" href="{{ route('client.orders.show' ,$client->id ) }}" title="{{ __('client.show_all_order') }}" ><i class="text-success fa fa-eye"></i> {{ __("client.show_all_order") }}</a>
+                                                <button class="dropdown-item"  data-toggle="modal" data-target="#editmodal{{ $client->id }}" title="{{ __('main_trans.edit') }}" ><i class="text-primary fa fa-edit"></i> {{ __("main_trans.edit") }}</button>
+                                                <button class="dropdown-item"  data-toggle="modal" data-target="#deletemodal{{ $client->id }}" title="{{ __('main_trans.delete') }}" ><i class="text-danger fa fa-trash"></i> {{ __("main_trans.delete") }}</button>
+                                            </div>
+                                        </div> 
                                     </td>
                                 </tr>
                                 @include('clients.edit')

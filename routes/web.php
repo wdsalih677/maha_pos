@@ -53,6 +53,7 @@ Route::group([
     Route::resource('client/orders' , OrderController::class);//orders route
     Route::get('client/orders/create/{client}', [OrderController::class, 'create'])->name('client.orders.create');//create order for user
     Route::post('client/orders/{client}', [OrderController::class, 'store'])->name('client.orders.store');//store order for user
+    Route::get('client/show_orders/{id}' , [OrderController::class , 'show_client_orders'])->name('client.orders.show');//route to get client orders
 
     //Orders Routes
     Route::get('/orders' , [OrdersOrderController::class , 'index'])->name('getAllOrders');//route to get all orders

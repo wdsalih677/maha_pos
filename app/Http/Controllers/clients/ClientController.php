@@ -25,11 +25,13 @@ class ClientController extends Controller
         try{
             $request->validate([
                 'name' => 'required|unique:clients,name',
+                'email' => 'required|unique:clients,email',
                 'phone' => 'required|numeric|unique:clients,phone',
                 'address' => 'required',
             ]);
             $client = new Client();
             $client->name = $request->name;
+            $client->email = $request->email;
             $client->phone = $request->phone;
             $client->address = $request->address;
             $client->save();
@@ -55,11 +57,13 @@ class ClientController extends Controller
         try{
             $request->validate([
                 'name' => 'required|unique:clients,name,'.$id,
+                'email' => 'required|unique:clients,email,'.$id,
                 'phone' => 'required|numeric|unique:clients,phone,'.$id,
                 'address' => 'required',
             ]);
             $client = Client::findOrFail($id);
             $client->name = $request->name;
+            $client->email = $request->email;
             $client->phone = $request->phone;
             $client->address = $request->address;
             $client->save();
