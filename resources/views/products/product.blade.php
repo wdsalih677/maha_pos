@@ -67,6 +67,8 @@
                                                 <br>
                                                 <label for="">{{ __('product.stock') }}</label>:
                                                 <label for="">{{ $product->stock }}</label>
+                                                <br>
+                                                <label for="">{{ $product->warehouses->warehous_name }}</label>
                                             </div>
                                         </div>
                                         <div class="row">

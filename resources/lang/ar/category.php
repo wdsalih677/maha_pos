@@ -8,6 +8,7 @@ return [
     'no_products' => 'لاتوجد منتجات',
     'select_category' => 'اختار القسم',
     'related_product' => 'المنتجات المرتبطه',
+    'please_select_category_first' => 'فضلا اختار القسم اولا',
 
     'add_category' => 'إضافة قسم',
     'edit_category' => 'تعديل قسم',

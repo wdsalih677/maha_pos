@@ -39,8 +39,10 @@
                                 <th>#</th>
                                 <th>{{ __('client.name') }}</th>
                                 <th>{{ __('client.phone') }}</th>
+                                <th>{{ __('client.email') }}</th>
+                                <th>{{ __('client.country') }}</th>
+                                <th>{{ __('client.city') }}</th>
                                 <th>{{ __('client.address') }}</th>
-                                <th>{{ __('client.add_order') }}</th>
                                 <th>{{ __('main_trans.option') }}</th>
                             </tr>
                         </thead>
@@ -50,16 +52,17 @@
                                     <td>{{ $loop->index +1 }}</td>
                                     <td>{{ $client->name }}</td>
                                     <td>{{ $client->phone }}</td>
+                                    <td>{{ $client->email }}</td>
+                                    <td>{{ $client->country }}</td>
+                                    <td>{{ $client->city }}</td>
                                     <td>{{ $client->address }}</td>
-                                    <td>
-                                        <a href="{{ route('client.orders.create',$client->id) }}" class="btn btn-info btn-sm">{{ __('client.add_order') }}</a>
-                                    </td>
                                     <td>
                                         <div class="dropdown">
                                             <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-info btn-sm" data-toggle="dropdown" type="button">{{ __('main_trans.option') }}<i class="fa fa-caret-down ml-1"></i></button>
                                             <div class="dropdown-menu tx-13">
+                                                <a class="dropdown-item" href="{{ route('client.orders.create',$client->id) }}" title="{{ __('client.add_order') }}"><i class="text-info fa fa-plus"></i> {{ __('client.add_order') }}</a>
                                                 <a class="dropdown-item" href="{{ route('client.orders.show' ,$client->id ) }}" title="{{ __('client.show_all_order') }}" ><i class="text-success fa fa-eye"></i> {{ __("client.show_all_order") }}</a>
-                                                <button class="dropdown-item"  data-toggle="modal" data-target="#editmodal{{ $client->id }}" title="{{ __('main_trans.edit') }}" ><i class="text-primary fa fa-edit"></i> {{ __("main_trans.edit") }}</button>
+                                                <button class="dropdown-item"  data-toggle="modal" data-target="#editmodal{{ $client->id }}" title="{{ __('main_trans.edit') }}" ><i class="text-warning fa fa-edit"></i> {{ __("main_trans.edit") }}</button>
                                                 <button class="dropdown-item"  data-toggle="modal" data-target="#deletemodal{{ $client->id }}" title="{{ __('main_trans.delete') }}" ><i class="text-danger fa fa-trash"></i> {{ __("main_trans.delete") }}</button>
                                             </div>
                                         </div> 
@@ -75,8 +78,10 @@
                                 <th>#</th>
                                 <th>{{ __('client.name') }}</th>
                                 <th>{{ __('client.phone') }}</th>
+                                <th>{{ __('client.email') }}</th>
+                                <th>{{ __('client.country') }}</th>
+                                <th>{{ __('client.city') }}</th>
                                 <th>{{ __('client.address') }}</th>
-                                <th>{{ __('client.add_order') }}</th>
                                 <th>{{ __('main_trans.option') }}</th>
                             </tr>
                         </tfoot>

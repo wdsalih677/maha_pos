@@ -83,3 +83,39 @@ $(document).ready(function(){
         }
     }
 });
+
+//script to get product_id by category_id
+
+// $(document).ready(function () {
+//     $('#categorySelect').on('change', function () {
+//         var id = $(this).val();
+//         var locale = "{{ App::getLocale() }}"; // Get the current locale
+//         var url = '/' + locale + '/get-products/' + id; // Dynamic locale-based URL
+
+//         if (id) {
+//             $.ajax({
+//                 url: url, 
+//                 type: 'GET',
+//                 success: function (data) {
+//                     $('#productSelect').empty(); // Clear previous options
+
+//                     if (data.length === 0) {
+//                         $('#productSelect').append('<option>No products available</option>');
+//                     } else {
+//                         $.each(data, function (key, product) {
+//                             // Get product name based on locale
+//                             var productName = (locale === 'ar') ? product.name_ar : product.name_en;
+//                             $('#productSelect').append('<option value="' + product.id + '">' + productName + '</option>');
+//                         });
+//                     }
+//                 },
+//                 error: function () {
+//                     $('#productSelect').empty().append('<option>Error loading products</option>');
+//                 }
+//             });
+//             $('#productSelect').prop('disabled', false); // Enable product select field
+//         } else {
+//             $('#productSelect').prop('disabled', true); // Disable if no category selected
+//         }
+//     });
+// });

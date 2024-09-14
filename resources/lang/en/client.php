@@ -7,6 +7,12 @@ return [
     'show_all_order' => 'Show Orders',
     'orders_of_client' => 'Orders Of',
     'orders_dated' => 'Orders Dated',
+    'country' => 'Country',
+    'city' => 'City',
+    'd_o_b' => 'Date Of Birth',
+    'from_date' => 'From',
+    'to_date' => 'To',
+    'search_by_date' => 'Search by date',
 
     'add_client' => 'Add Client',
     'edit_client' => 'Edit Client',

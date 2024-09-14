@@ -17,16 +17,27 @@
                     <div class="row">
                         <div class="col">
                             <label for="">{{ __('client.name') }} :</label>
-                            <input type="text" value="{{ $client->name }}" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" value="{{ $client->name }}">
+
+                            <label>{{ __('client.country') }}</label>
+                            <input type="text" name="country" class="form-control" value="{{ $client->country }}">
+
+                            <label>{{ __('client.d_o_b') }}</label>
+                            <input type="date" name="d_o_b" class="form-control" value="{{ $client->d_o_b }}">
                         </div>
                         <div class="col">
                             <label for="">{{ __('client.phone') }} :</label>
-                            <input type="text" value="{{ $client->phone }}" name="phone" class="form-control">
+                            <input type="text" name="phone" class="form-control" value="{{ $client->phone }}">
+
+                            <label>{{ __('users.email') }}</label>
+                            <input type="email" name="email" class="form-control" value="{{ $client->email }}">
+
+                            <label>{{ __('client.city') }}</label>
+                            <input type="text" name="city" class="form-control" value="{{ $client->city }}">
                         </div>
                     </div>
                     <br>
-                    <label>{{ __('users.email') }}</label>
-                    <input type="email" name="email" class="form-control" value="{{ $client->email }}">
+                    
                     <br>
                     <label>{{ __('client.address') }} :</label>
                     <textarea name="address" class="form-control">{{ $client->address }}</textarea>

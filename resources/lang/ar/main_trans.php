@@ -11,4 +11,7 @@ return [
     'read_more' => 'قراءة المزيد',
     'read_less' => 'قراءة أقل',
     'total' => 'المجموع',
+    'Order_Tracking_Chart' => 'مخطط تتبع الطلبات',
+    'Refresh' => 'تحديث',
+    'search' => 'بحث',
 ];

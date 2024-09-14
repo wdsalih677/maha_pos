@@ -51,6 +51,17 @@
                     </div>
                     <br>
                     <div class="row">
+                        <div class="col-md-12">
+                            <label>{{ __('product.warehous') }} :</label>
+                            <select name="warehous_id" class="form-control">
+                                @foreach ($warehouses as $warehous )
+                                    <option value="{{ $warehous->id }}">{{ $warehous->warehous_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
                         <div class="col-md-6">
                             <label>{{ __('product.description_ar') }} :</label>
                             <textarea name="description_ar" class="form-control" style="height: 200px"></textarea>

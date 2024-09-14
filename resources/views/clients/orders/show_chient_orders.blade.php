@@ -28,11 +28,13 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
+                <div class="container ml-0">
+
+                </div>
                 <div class="accordion plus-icon shadow">
                     <div class="acd-group">
-                        @if (!empty($client->orders))
-                            @foreach ($client->orders as $order)
-                                
+                        {{-- @if ($client->orders == null) --}}
+                            @foreach ($orders as $order)
                             <a href="#" class="acd-heading">{{ __('client.orders_dated') }} {{  $order->created_at->format('d/m/Y') }} | {{ $order->created_at->diffForHumans() }}</a>
                             <div class="acd-des">
                                 <h6 class="default-color text-center" style="font-family: Cairo, sans-serif">{{ __('order.order_number') }} | {{ $order->ordernumber }}</h6>
@@ -73,11 +75,15 @@
                                 </div>
                             </div> 
                             @endforeach
-                        @else
-                            <div class="acd-des">
-                                <div class="alert alert-info">{{ __('category.no_products') }}</div>
-                            </div>  
-                        @endif
+                            {{-- {{ $orders->links('pagination::bootstrap-5') }} --}}
+                            <div class="pagination">
+                                {{ $orders->links('pagination::bootstrap-4') }}
+                            </div>
+                        {{-- @else --}}
+                            {{-- <div class="acd-des">
+                                <div class="alert alert-danger text-lg-center">{{ __('category.no_products') }}</div>
+                            </div>   --}}
+                        {{-- @endif --}}
                     </div>
                 </div>
             </div>

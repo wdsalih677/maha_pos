@@ -12,4 +12,8 @@ return [
     'clients_list' => 'قائمة العملاء',
     'orders' => 'الطلبات',
     'orders_list' => 'قائمة الطلبات',
+    'suppliers' => 'الموردون',
+    'suppliers_list' => 'قائمة الموردون',
+    'warehouses' => 'المستودعات',
+    'warehouses_list' => 'قائمة المستودعات',
 ];

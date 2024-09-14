@@ -8,7 +8,10 @@ use App\Http\Controllers\orders\OrderController as OrdersOrderController;
 use App\Http\Controllers\products\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SelesController;
+use App\Http\Controllers\suppliers\SupplierController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\warehouses\WarehousController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -34,8 +37,8 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(), 
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' , 'auth', 'verified']
 ], function(){
-    //dashboard route
-    Route::get('/dashboard',[ AdminController::class , 'index'])->name('dashboard');
+    //dashboard route & seles route
+    Route::resource('/dashboard',AdminController::class);
 
     //user route
     Route::resource('/users', UserController::class);
@@ -48,6 +51,8 @@ Route::group([
 
     //product route
     Route::resource('/products' , ProductController::class);
+    Route::get('/get-products/{id}', [OrdersOrderController::class, 'getProductsByCategory'])->name('get.products');//route to get product by category id
+    
     //client order route
     Route::resource('/clients' , ClientController::class);//clients route
     Route::resource('client/orders' , OrderController::class);//orders route
@@ -59,7 +64,11 @@ Route::group([
     Route::get('/orders' , [OrdersOrderController::class , 'index'])->name('getAllOrders');//route to get all orders
     Route::get('/order_details/{id}' , [OrdersOrderController::class , 'getOrderDetails'])->name('order.detalis');//route to get order detali
 
-    
+    //suppliers Routes
+    Route::resource('/suppliers' , SupplierController::class);
+
+    //warehouese route
+    Route::resource('/warehouses' , WarehousController::class);
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

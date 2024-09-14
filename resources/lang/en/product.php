@@ -13,6 +13,7 @@ return [
     'description' => 'Description',
     'image' => 'Image',
     'profit' => 'Profit',
+    'warehous' => 'Warehous',
 
     'add_product' => 'Add Product',
     'edit_product' => 'Edit Product',

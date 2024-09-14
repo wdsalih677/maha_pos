@@ -7,6 +7,12 @@ return [
     'show_all_order' => 'عرض الطلبات',
     'orders_of_client' => 'طلبات العميل',
     'orders_dated' => 'طلبات بتاريخ',
+    'country' => 'البلد',
+    'city' => 'المدينه',
+    'd_o_b' => 'تاريخ الميلاد',
+    'from_date' => 'من',
+    'to_date' => 'إلى',
+    'search_by_date' => 'بحث باستخدام التاريخ',
 
     'add_client' => 'اضافة عميل',
     'edit_client' => 'تعديل عميل',

@@ -12,4 +12,8 @@ return [
     'clients_list' => 'Clients List',
     'orders' => 'Orders',
     'orders_list' => 'Orders List',
+    'suppliers' => 'Sppliers',
+    'suppliers_list' => 'Suppliers List',
+    'warehouses' => 'Warehouses',
+    'warehouses_list' => 'Warehouses List',
 ];

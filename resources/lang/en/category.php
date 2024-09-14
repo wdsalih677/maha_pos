@@ -8,6 +8,7 @@ return [
     'no_products' => 'No Products',
     'select_category' => 'Select Category',
     'related_product' => 'Related Products',
+    'please_select_category_first' => 'Please select a category first',
 
     'add_category' => 'Add Category',
     'edit_category' => 'Edit Category',

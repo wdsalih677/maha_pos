@@ -61,7 +61,7 @@ use OrderNumber;
                     'stock' => $product->stock - $quantity,
                 ]);
             
-                if ($product->stock < 5) {
+                if ( $product->stock < 5 ) {
                     toastr()->warning(__('product.product_run_out'));
                 }
                 
@@ -72,8 +72,6 @@ use OrderNumber;
         $order->update([
             'total_price' => $total_price,
         ]);
-
-        // Notification::send($client->email , new OrderCreated($order->id));
         
         $client->notify(new OrderCreated($order , $client));
         toastr()->success(__('order.add_order_success'));
@@ -157,6 +155,7 @@ use OrderNumber;
     public function show_client_orders($id)
     {
         $client = Client::findOrFail($id);
-        return view('clients.orders.show_chient_orders' , compact('client'));
+        $orders = $client->orders()->paginate(2);
+        return view('clients.orders.show_chient_orders' , compact('client' , 'orders'));
     }
 }

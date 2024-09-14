@@ -13,6 +13,7 @@ return [
     'description' => 'الوصف',
     'image' => 'صوره',
     'profit' => 'الربح',
+    'warehous' => 'المستودع',
     
 
     'add_product' => 'اضافة منتج',

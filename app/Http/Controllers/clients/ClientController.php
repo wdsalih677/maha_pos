@@ -28,12 +28,18 @@ class ClientController extends Controller
                 'email' => 'required|unique:clients,email',
                 'phone' => 'required|numeric|unique:clients,phone',
                 'address' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'd_o_b' => 'required',
             ]);
             $client = new Client();
             $client->name = $request->name;
             $client->email = $request->email;
             $client->phone = $request->phone;
             $client->address = $request->address;
+            $client->country = $request->country;
+            $client->city = $request->city;
+            $client->d_o_b = $request->d_o_b;
             $client->save();
             toastr()->success(__('client.add_client_success'));
             return redirect()->route('clients.index');
@@ -60,12 +66,18 @@ class ClientController extends Controller
                 'email' => 'required|unique:clients,email,'.$id,
                 'phone' => 'required|numeric|unique:clients,phone,'.$id,
                 'address' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'd_o_b' => 'required',
             ]);
             $client = Client::findOrFail($id);
             $client->name = $request->name;
             $client->email = $request->email;
             $client->phone = $request->phone;
             $client->address = $request->address;
+            $client->country = $request->country;
+            $client->city = $request->city;
+            $client->d_o_b = $request->d_o_b;
             $client->save();
             toastr()->success(__('client.edit_client_success'));
             return redirect()->route('clients.index');
