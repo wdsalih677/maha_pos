@@ -129,7 +129,7 @@
 @endsection
 @section('js')
 <script>
-    //script to display image preview
+    //script to display image preview using jquery
     $(".image").change(function (){
         if(this.files && this.files[0]){
             var reader = new FileReader();
